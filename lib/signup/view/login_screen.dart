@@ -4,8 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shopping_mall/common/component/custom_text_form_field.dart';
 import 'package:shopping_mall/common/const/colors.dart';
+import 'package:shopping_mall/common/const/data.dart';
 import 'package:shopping_mall/common/layout/default_layout.dart';
 import 'package:dio/dio.dart';
 import 'package:shopping_mall/common/view/root_tab.dart';
@@ -24,6 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final dio = Dio();
+
+    final storage = FlutterSecureStorage();
 
     final emulatorIP = '10.0.2.2:3000'; //안드로이드 IP
     final simulatorIP = '127.0.0.1:3000'; //iOS IP
@@ -68,6 +72,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                   );
+
+                  final refreshToken = response.data['refreshToken'];
+                  final accessToken = response.data['accessToken'];
+
+                  await storage.write(
+                      key: REFRESH_TOKEN_KEY, value: refreshToken);
+                  await storage.write(
+                      key: ACCESS_TOKEN_KEY, value: accessToken);
+
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (_) => RootTab(),
