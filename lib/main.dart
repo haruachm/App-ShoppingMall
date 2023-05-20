@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_mall/signup/view/login_screen.dart';
 import 'package:shopping_mall/signup/view/signup_screen.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      home: LoginScreen(),
     );
   }
 }
