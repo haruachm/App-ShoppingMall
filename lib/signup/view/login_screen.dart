@@ -8,6 +8,7 @@ import 'package:shopping_mall/common/component/custom_text_form_field.dart';
 import 'package:shopping_mall/common/const/colors.dart';
 import 'package:shopping_mall/common/layout/default_layout.dart';
 import 'package:dio/dio.dart';
+import 'package:shopping_mall/common/view/root_tab.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -65,6 +66,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       headers: {
                         'authorization': 'Basic $token',
                       },
+                    ),
+                  );
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => RootTab(),
                     ),
                   );
                 },
