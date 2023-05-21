@@ -27,8 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final dio = Dio();
 
-    final storage = FlutterSecureStorage();
-
     final emulatorIP = '10.0.2.2:3000'; //안드로이드 IP
     final simulatorIP = '127.0.0.1:3000'; //iOS IP
 
