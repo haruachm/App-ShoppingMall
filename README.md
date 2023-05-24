@@ -1,2 +1,2 @@
-# shopping_mall
+# 쇼핑몰
 
